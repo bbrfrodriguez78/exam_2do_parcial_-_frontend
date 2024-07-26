@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: frontend
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "./start_frontend.sh"
+    envVars:
+      - key: FLASK_APP
+        value: frontend.py
+      - key: PORT
+        value: 5000
+
+  - type: web
+    name: backend
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "./start_backend.sh"
+    envVars:
+      - key: FLASK_APP
+        value: backend.py
+      - key: PORT
+        value: 5001
+
